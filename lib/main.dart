@@ -28,8 +28,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   void initState() {
+    final jwtToken = 'your_jwt_token_here'; // Replace with your JWT token
     _hubConnection = HubConnectionBuilder()
-        .withUrl("http://192.168.100.79:5003/streamingHub",
+        .withUrl("http://192.168.100.79:5003/streamingHub?token=$jwtToken",
             options: HttpConnectionOptions())
         .withAutomaticReconnect(retryDelays: [
       1000,
